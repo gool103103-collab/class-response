@@ -74,6 +74,9 @@ button:disabled { cursor: default; opacity: .55; }
 .link { background: none; border: 0; color: var(--accent); padding: 0 .4rem; }
 .danger { color: var(--bad); }
 .big { min-height: 52px; font-size: 1.05rem; width: 100%; }
+.student-save { min-height: 60px; font-size: 1.15rem; }
+.student-save.is-saved { background: var(--ok); }
+.student-save.is-saved:hover:not(:disabled) { background: #116530; }
 
 /* 알림 */
 .msg { min-height: 1.4em; color: var(--accent-ink); font-weight: 500; }

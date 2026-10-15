@@ -389,7 +389,7 @@ function buildForm(c) {
   const values = Object.assign({}, a.mine || {}, draft ? draft.values : {});
   const err = h("p", { class: "error" });
   const status = h("p", { class: "status" });
-  const btn = h("button", { class: "primary big", type: "button" });
+  const btn = h("button", { class: "primary big student-save", type: "button" });
   let sending = false;
 
   const saveDraft = () => {
@@ -466,6 +466,7 @@ function buildForm(c) {
       return;
     }
     btn.disabled = sending || !open || (a.mine && !d);
+    btn.classList.toggle("is-saved", !!a.mine && !d);
     btn.textContent = sending ? "저장 중…" : a.kind === "quiz" ? "제출하기" : !a.mine ? "저장하기" : d ? "고친 내용 저장" : "저장됨";
     status.textContent = !open ? "지금은 저장할 수 없습니다." : a.mine && !d ? "✓ 저장 완료 (" + fmtTime(a.saved_at) + ")" : a.mine ? "저장하지 않은 수정 내용이 있습니다." : "";
     status.className = a.mine && !d && open ? "status ok" : "status";
